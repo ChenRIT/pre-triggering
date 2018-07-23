@@ -10,6 +10,8 @@ import spacy
 import benepar
 from benepar.spacy_plugin import BeneparComponent
 
+import time
+
 nlp = spacy.load('en')
 nlp.add_pipe(BeneparComponent('benepar_en'))
 
@@ -72,9 +74,7 @@ class pre_trigger():
         else:
             return (is_question, False)
 
-
-        
-if __name__ == '__main__':
+def test():
     sent1 = "When is the pool closed?"
     sent2 = "Can you deliver a towel to our room?"
     sent3 = "I like the burger in your restaurant."
@@ -90,3 +90,19 @@ if __name__ == '__main__':
     sent3_res = pre_trigger.identify_info(sent3)
     print("sent3's result: {}".format(sent3_res))
 
+        
+if __name__ == '__main__':
+    
+    start = time.time()
+    sent = "If I needed to cancel- what time do I have to do that by? 4?"
+
+    pre_trigger = pre_trigger()
+
+    sent_res = pre_trigger.identify_info(sent)
+    end = time.time()
+
+    print("sent1's result: {}".format(sent_res))
+    print("Time: {}".format(end - start))
+
+
+    
