@@ -41,8 +41,6 @@ class pre_trigger():
             self.qa_logi_model = joblib.load(path_to_qa_model)            
             self.vectorizer = joblib.load(path_to_vectorizer)
             self.logi_model = joblib.load(path_to_model)
-            # Parse a test sentence:
-            self.identify_info("Good morning.")
 
     def identify_question(self, sent):
         """
