@@ -79,8 +79,8 @@ class pre_trigger():
 
         # Use constituency parsing tree to determine if the sentence is a question
         is_question = self.identify_question(sent)        
-        # if not is_question:
-        #     return (is_question, False)
+        if not is_question:
+            return (is_question, False)
 
         # Use logistic regression to determine if the sentence
         # is about information-seeking.
